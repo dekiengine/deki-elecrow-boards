@@ -59,6 +59,7 @@
                 "blPin": 31,
                 "blPwmHz": 30000,
                 "dataLanes": 2,
+                "drawInStrips": true,
                 "frameBuffers": 3,
                 "hBackPorch": 160,
                 "hFrontPorch": 160,

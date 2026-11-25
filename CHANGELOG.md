@@ -17,3 +17,5 @@ alongside one that has them.
   and a 256 KB L2 cache (16.6 fps when it first ran). The backlight is driven
   with PWM at 30 kHz (98%), as Elecrow's firmware drives it; held high, the
   panel's brightness flickered.
+- The board draws in strips in internal RAM, copied into the frame buffer by
+  DMA (`drawInStrips`): 27 to 42 fps on the starter scene.

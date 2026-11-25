@@ -13,6 +13,19 @@
       "CONFIG_ESP32P4_REV_MIN_100=y",
       "CONFIG_CACHE_L2_CACHE_256KB=y",
       "CONFIG_CACHE_L2_CACHE_LINE_128B=y"
+    ],
+    "wifiCoprocessor": "esp32c6",
+    "wifiCoprocessorSdkconfig": [
+      "CONFIG_ESP_HOSTED_SDIO_SLOT_1=y",
+      "CONFIG_ESP_HOSTED_HOST_SDIO_BUS_WIDTH_4=y",
+      "CONFIG_ESP_HOSTED_HOST_SDIO_CLK_KHZ=40000",
+      "CONFIG_ESP_HOSTED_HOST_SDIO_PIN_CMD=19",
+      "CONFIG_ESP_HOSTED_HOST_SDIO_PIN_CLK=18",
+      "CONFIG_ESP_HOSTED_HOST_SDIO_PIN_D0=17",
+      "CONFIG_ESP_HOSTED_HOST_SDIO_PIN_D1=16",
+      "CONFIG_ESP_HOSTED_HOST_SDIO_PIN_D2=15",
+      "CONFIG_ESP_HOSTED_HOST_SDIO_PIN_D3=14",
+      "CONFIG_ESP_HOSTED_HOST_RESET_GPIO=32"
     ]
   },
   "externalMemorySize": 33554432,
@@ -25,7 +38,8 @@
     "threads",
     "psram",
     "spi",
-    "i2c"
+    "i2c",
+    "wifi"
   ],
   "requiresPackages": [
     "deki-esp32-integration",

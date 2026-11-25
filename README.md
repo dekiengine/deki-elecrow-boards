@@ -6,7 +6,7 @@ Build targets for Elecrow boards. Install the package and the boards appear in t
 | --- | --- | --- | --- |
 | `elecrow_crowpanel_advanced_9_p4` | CrowPanel Advanced 9" ESP32-P4 | 1024x600 EK79007, MIPI-DSI (2 lanes), through deki-display | GT911 through deki-display |
 
-**Status: experimental. The display, backlight and touch run on the board; the SD card, audio and WiFi are not set up yet.** Not in the Package Manager yet: it needs the next Deki release. Pins, timing and the panel's start-up come from Elecrow's own ESP-IDF examples (listed under the board). If something is wrong on your board, fix it in your project's copy and please open an issue.
+**Status: experimental. The display, backlight, touch and WiFi run on the board; the SD card and audio are not set up yet.** Not in the Package Manager yet: it needs the next Deki release. Pins, timing and the panel's start-up come from Elecrow's own ESP-IDF examples (listed under the board). If something is wrong on your board, fix it in your project's copy and please open an issue.
 
 [Deki](https://dekiengine.com) is a modular C++ engine for embedded systems and desktop, with a visual editor. Every capability is a package, and a board is one too: this package has no code, only a description of each board and the scene that boots it.
 
@@ -38,9 +38,11 @@ Boot order, as the boot scene lists it:
 4. I2C bus: port 0, SDA 45, SCL 46, 400 kHz.
 5. Touch: deki-display's `TouchPanelComponent`. GT911 at 0x5D (0x14 as a fallback), interrupt on GPIO 42, reset on GPIO 40, 1024x600 as the panel.
 
-Set up by this package: display, backlight, touch.
+WiFi: the P4 has none of its own; the board's ESP32-C6 (ESP32-C6-MINI-1) gives it over 4-bit SDIO at 40 MHz (CMD 19, CLK 18, D0 17, D1 16, D2 15, D3 14), with its enable on GPIO 32. The platform names the chip (`wifiCoprocessor`) and the link (`wifiCoprocessorSdkconfig`); a game that uses deki-wifi gets Espressif's `esp_hosted` built in, and a game without it leaves the C6 alone. It works with the firmware the C6 ships with (2.12.3; `esp_hosted` logs a "major version mismatch" and goes on in its compatible mode). A scan finds the access points in about 2.5 s. The link takes about 114 KB of internal RAM. Elecrow's example puts the C6's reset on GPIO 54; their schematic notes and the board say GPIO 32.
 
-Not set up yet: the SD card (SDMMC), audio (I2S amplifier and PDM microphone), WiFi (the board's ESP32-C6, which needs Espressif's `esp_hosted`), the wireless module slot, the battery.
+Set up by this package: display, backlight, touch, WiFi.
+
+Not set up yet: the SD card (SDMMC), audio (I2S amplifier and PDM microphone), Bluetooth through the C6, the wireless module slot, the battery.
 
 The serial console is UART0, through the board's CH340 USB-UART bridge; firmware is flashed through it.
 

@@ -17,6 +17,9 @@ alongside one that has them.
   and a 256 KB L2 cache (16.6 fps when it first ran). The backlight is driven
   with PWM at 30 kHz (98%), as Elecrow's firmware drives it; held high, the
   panel's brightness flickered.
+- WiFi through the board's ESP32-C6, over 4-bit SDIO (deki-esp32-integration's
+  `wifiCoprocessor`): only in games that use deki-wifi. Works with the C6's
+  own firmware (2.12.3); a scan takes about 2.5 s.
 - The board draws in strips in internal RAM, copied into the frame buffer by
   DMA (`drawInStrips`): 27 to 42 fps on the starter scene, 56.4 with
   deki-esp32-integration's larger scaled cache.

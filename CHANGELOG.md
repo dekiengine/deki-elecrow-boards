@@ -18,4 +18,5 @@ alongside one that has them.
   with PWM at 30 kHz (98%), as Elecrow's firmware drives it; held high, the
   panel's brightness flickered.
 - The board draws in strips in internal RAM, copied into the frame buffer by
-  DMA (`drawInStrips`): 27 to 42 fps on the starter scene.
+  DMA (`drawInStrips`): 27 to 42 fps on the starter scene, 56.4 with
+  deki-esp32-integration's larger scaled cache.

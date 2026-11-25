@@ -1,0 +1,184 @@
+{
+  "formatVersion": 1,
+  "objects": [
+    {
+      "active": true,
+      "children": [
+        {
+          "active": true,
+          "children": [],
+          "components": [
+            {
+              "properties": {
+                "channel": 3,
+                "millivolts": 2500
+              },
+              "type": "DekiEsp32::ESP32LdoSetup"
+            }
+          ],
+          "id": 600,
+          "name": "LDO 3 (2.5 V, DSI PHY)",
+          "transform": {
+            "rotation": 0.0,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        {
+          "active": true,
+          "children": [],
+          "components": [
+            {
+              "properties": {
+                "channel": 4,
+                "millivolts": 3300
+              },
+              "type": "DekiEsp32::ESP32LdoSetup"
+            }
+          ],
+          "id": 601,
+          "name": "LDO 4 (3.3 V, panel)",
+          "transform": {
+            "rotation": 0.0,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        {
+          "active": true,
+          "children": [],
+          "components": [
+            {
+              "properties": {
+                "blBrightness": 98,
+                "blInvert": false,
+                "blPin": 31,
+                "blPwmHz": 30000,
+                "dataLanes": 2,
+                "frameBuffers": 3,
+                "hBackPorch": 160,
+                "hFrontPorch": 160,
+                "hsyncPulse": 70,
+                "initSequence": "# EK79007, as Espressif's esp_lcd_ek79007 driver starts it (the one Elecrow's examples use)\n01; delay 20            # software reset (the panel's reset pin is not wired)\nB2 10                   # pad control: two DSI lanes\n80 8B; 81 78; 82 84; 83 88; 84 A8; 85 E3; 86 88   # the panel module's own settings\n11; delay 120           # sleep out\n",
+                "laneMbps": 900,
+                "panelHeight": 600,
+                "panelWidth": 1024,
+                "pixelClockHz": 51000000,
+                "rstPin": -1,
+                "vBackPorch": 23,
+                "vFrontPorch": 12,
+                "vsyncPulse": 10
+              },
+              "type": "DekiDisplay::DsiPanelComponent"
+            }
+          ],
+          "id": 602,
+          "name": "Display (EK79007, MIPI-DSI)",
+          "transform": {
+            "rotation": 0.0,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        {
+          "active": true,
+          "children": [],
+          "components": [
+            {
+              "properties": {
+                "i2cHz": 400000,
+                "i2cPort": 0,
+                "sclPin": 46,
+                "sdaPin": 45
+              },
+              "type": "DekiI2c::I2CBusComponent"
+            }
+          ],
+          "id": 603,
+          "name": "I2C Bus (touch)",
+          "transform": {
+            "rotation": 0.0,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        {
+          "active": true,
+          "children": [],
+          "components": [
+            {
+              "properties": {
+                "controller": "GT911",
+                "i2cAddress": 0,
+                "i2cPort": 0,
+                "intPin": 42,
+                "offsetRotation": "None",
+                "rstPin": 40,
+                "xMax": 1023,
+                "xMin": 0,
+                "yMax": 599,
+                "yMin": 0
+              },
+              "type": "DekiDisplay::TouchPanelComponent"
+            }
+          ],
+          "id": 604,
+          "name": "Touch (GT911)",
+          "transform": {
+            "rotation": 0.0,
+            "scaleX": 1.0,
+            "scaleY": 1.0,
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      ],
+      "components": [
+        {
+          "properties": {
+            "setupComponents": [
+              {
+                "id": 600,
+                "typeId": 2263864890
+              },
+              {
+                "id": 601,
+                "typeId": 2263864890
+              },
+              {
+                "id": 602,
+                "typeId": 3477937945
+              },
+              {
+                "id": 603,
+                "typeId": 1919918867
+              },
+              {
+                "id": 604,
+                "typeId": 29374474
+              }
+            ]
+          },
+          "type": "Deki::PlatformSetupComponent"
+        }
+      ],
+      "id": 1,
+      "name": "Setup",
+      "transform": {
+        "rotation": 0.0,
+        "scaleX": 1.0,
+        "scaleY": 1.0,
+        "x": 0.0,
+        "y": 0.0
+      }
+    }
+  ]
+}

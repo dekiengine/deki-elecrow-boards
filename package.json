@@ -1,0 +1,14 @@
+{
+  "id": "deki-elecrow-boards",
+  "displayName": "Elecrow Boards",
+  "description": "Build targets for Elecrow boards: CrowPanel Advanced 9\" ESP32-P4",
+  "minEngine": "0.40.0",
+  "requires": [
+    "deki-esp32-integration",
+    "deki-display",
+    "deki-input",
+    "deki-i2c",
+    "deki-gpio"
+  ],
+  "features": []
+}

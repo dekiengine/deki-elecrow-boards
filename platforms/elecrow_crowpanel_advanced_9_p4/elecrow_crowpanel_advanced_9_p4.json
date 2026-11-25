@@ -1,0 +1,38 @@
+{
+  "id": "elecrow_crowpanel_advanced_9_p4",
+  "displayName": "Elecrow CrowPanel Advanced 9\" (ESP32-P4)",
+  "family": "espressif",
+  "framework": "espidf",
+  "frameworkOptions": {
+    "idfTarget": "esp32p4",
+    "mcuChip": "esp32p4",
+    "cpuFreqHz": 360000000,
+    "flashSize": 16777216,
+    "sdkconfig": [
+      "CONFIG_ESP32P4_SELECTS_REV_LESS_V3=y",
+      "CONFIG_ESP32P4_REV_MIN_100=y",
+      "CONFIG_CACHE_L2_CACHE_256KB=y",
+      "CONFIG_CACHE_L2_CACHE_LINE_128B=y"
+    ]
+  },
+  "externalMemorySize": 33554432,
+  "screenWidth": 1024,
+  "screenHeight": 600,
+  "screenDiagonalInches": 9.0,
+  "colorFormat": "RGB565",
+  "provides": [
+    "filesystem",
+    "threads",
+    "psram",
+    "spi",
+    "i2c"
+  ],
+  "requiresPackages": [
+    "deki-esp32-integration",
+    "deki-display"
+  ],
+  "defines": [
+    "ESP32"
+  ],
+  "bootScene": "platforms/elecrow_crowpanel_advanced_9_p4/boot.scene"
+}
